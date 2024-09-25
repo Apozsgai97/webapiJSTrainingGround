@@ -1,16 +1,19 @@
 const express = require('express');
 const app = express();
 
-app.get('/', (req, res) => {
-    const dev = {
+const db = [
+    {
         id: 1,
-        name: 'Marcus Dev',
+        name:'Marcus Dev',
         email: 'marcus@salt.dev'
     }
+];
+
+app.get('/', (req, res) => {
     res
         .status(201)
         .setHeader('location', `/api/developers/1`)
-        .json(dev);
+        .json(db[0]);
 });
 const port = 3000
 
