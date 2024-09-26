@@ -43,6 +43,18 @@ app.post('/api/developers/', (req, res) => {
         .setHeader('location', `/api/developers/${newDeveloper.id}`)
         .json(newDeveloper);
 });
+
+app.delete('/api/developers/:id', (req, res) => {
+    const deleteDev = db.findIndex(deleteDev => deleteDev.id == req.params.id);
+
+    if (deleteDev !== -1){
+        db.splice(deleteDev,1);
+        res.status(204).send();
+    } else {
+        res.status(404).end();
+    }
+
+});
 const port = 3000
 
 app.listen(port, () => {
