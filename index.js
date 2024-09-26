@@ -17,6 +17,10 @@ const db = [
 
 app.use(express.json());
 
+app.get('/api/developers/', (req, res) => {
+    res.json(db);
+});
+
 app.get('/api/developers/:id', (req, res) => {
     const dev = db.find(dev => dev.id == req.params.id);
 
