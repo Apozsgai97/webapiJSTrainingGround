@@ -16,9 +16,7 @@ const db = [
 ];
 
 app.get('/api/developers/:id', (req, res) => {
-    const dev = db.find(function(dev){
-        return dev.id == req.params.id;
-    });
+    const dev = db.find(dev => dev.id == req.params.id);
     if(!dev) {
         res.status(404).end();
         return;
