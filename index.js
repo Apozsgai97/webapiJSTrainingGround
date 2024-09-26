@@ -6,7 +6,13 @@ const db = [
         id: 1,
         name:'Marcus Dev',
         email: 'marcus@salt.dev'
+    },
+    {
+        id: 2,
+        name: 'Lilly Designer',
+        email: 'lilly@salt.dev'
     }
+
 ];
 
 app.get('/api/developers', (req, res) => {
