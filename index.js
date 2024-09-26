@@ -9,11 +9,8 @@ const db = [
     }
 ];
 
-app.get('/', (req, res) => {
-    res
-        .status(201)
-        .setHeader('location', `/api/developers/1`)
-        .json(db[0]);
+app.get('/api/developers', (req, res) => {
+    res.json(db);
 });
 const port = 3000
 
