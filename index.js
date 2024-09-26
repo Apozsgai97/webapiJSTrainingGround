@@ -16,13 +16,14 @@ const db = [
 ];
 
 app.get('/api/developers/:id', (req, res) => {
-    for(let i = 0; i < db.length; i++) {
-        if(db[i].id == req.params.id){
-            res.json(db[i]);
-            return;
-        }
+    const dev = db.find(function(dev){
+        return dev.id == req.params.id;
+    });
+    if(!dev) {
+        res.status(404).end();
+        return;
     }
-    res.status(404).end();
+    res.json(dev);
 });
 const port = 3000
 
